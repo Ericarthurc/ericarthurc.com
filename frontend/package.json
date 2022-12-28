@@ -1,0 +1,23 @@
+{
+  "name": "eac-frontend",
+  "version": "1.5.0",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "solid-devtools": "^0.24.5",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3",
+    "vite-plugin-solid": "^2.5.0"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.28.2",
+    "@solidjs/router": "^0.6.0",
+    "sass": "^1.57.1",
+    "solid-js": "^1.6.6"
+  }
+}
