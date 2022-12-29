@@ -1,6 +1,6 @@
 {
   "name": "eac-frontend",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "scripts": {
     "start": "vite",
     "dev": "vite",

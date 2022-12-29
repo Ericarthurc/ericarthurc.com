@@ -47,7 +47,7 @@ const SiteHeader: Component = () => {
 const AdminHeader: Component = () => {
   return (
     <>
-      <Themer></Themer>
+      {/* <Themer></Themer> */}
       <Header></Header>
       <Outlet />
     </>

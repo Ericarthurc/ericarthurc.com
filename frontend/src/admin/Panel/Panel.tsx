@@ -37,13 +37,18 @@ const Panel: Component<IProps> = (props) => {
     <>
       <h2>ADMIN PANEL</h2>
       <button
+        class="admin-button"
         style={{ 'margin-bottom': '25px' }}
         onClick={props.logout}
         type="submit"
       >
         Logout
       </button>
-      <button style={{ 'margin-bottom': '25px' }} type="submit">
+      <button
+        class="admin-button"
+        style={{ 'margin-bottom': '25px' }}
+        type="submit"
+      >
         Force Cache Reload
       </button>
 
@@ -53,6 +58,7 @@ const Panel: Component<IProps> = (props) => {
             <Switch fallback={<></>}>
               <Match when={!creator()}>
                 <button
+                  class="admin-button"
                   style={{ 'margin-bottom': '25px' }}
                   onClick={() => setCreator(!creator())}
                 >

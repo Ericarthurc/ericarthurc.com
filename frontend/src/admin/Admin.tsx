@@ -6,6 +6,8 @@ import Login from './Login/Login';
 import { adminForm } from './adminForm';
 import Panel from './Panel/Panel';
 
+import './style/admin.scss';
+
 const Admin: Component = () => {
   const [loaded, isLoaded] = createSignal<Boolean>(false);
   const [authorized, setAuthorized] = createSignal<Boolean>(false);
@@ -29,19 +31,13 @@ const Admin: Component = () => {
     event.preventDefault();
 
     await adminLogout();
-
     setAuthorized(false);
     clearForm();
   };
 
   onMount(async () => {
     try {
-      const response = await adminGetMe();
-
-      if (!response.ok) {
-        throw new Error(response.status.toString());
-      }
-
+      await adminGetMe();
       setAuthorized(true);
     } catch (error) {}
     isLoaded(true);
@@ -49,13 +45,13 @@ const Admin: Component = () => {
 
   return (
     <>
-      <nav class="navbar" id="navbar">
-        <A class="navbar-link" end={true} href="/blog">
+      <nav class="admin-navbar" id="navbar">
+        <A class="admin-navbar-link" end={true} href="/blog">
           Return to Home
         </A>
       </nav>
 
-      <div class="main-container">
+      <div class="admin-container">
         <Switch fallback={<></>}>
           <Match when={loaded()}>
             <Switch fallback={<></>}>

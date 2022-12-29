@@ -9,26 +9,33 @@ interface IProps {
 
 const Login: Component<IProps> = (props) => {
   return (
-    <form
-      style={{ display: 'flex', 'flex-direction': 'column' }}
-      onSubmit={props.handleSubmit}
-    >
-      <label for="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        value={props.form.password}
-        onChange={props.updateFormField('password')}
-      />
-      <label for="pin">Pin:</label>
-      <input
-        type="password"
-        id="pin"
-        value={props.form.pin}
-        onChange={props.updateFormField('pin')}
-      />
-      <input class="form-submit" type="submit" value="Login" />
-    </form>
+    <div class="admin-login-form">
+      <form class="admin-form" onSubmit={props.handleSubmit}>
+        <label class="admin-label" for="password">
+          Password:
+        </label>
+        <input
+          class="admin-input"
+          type="password"
+          id="password"
+          value={props.form.password}
+          onChange={props.updateFormField('password')}
+        />
+        <label class="admin-label" for="pin">
+          Pin:
+        </label>
+        <input
+          class="admin-input"
+          type="password"
+          id="pin"
+          value={props.form.pin}
+          onChange={props.updateFormField('pin')}
+        />
+        <button class="admin-button" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 

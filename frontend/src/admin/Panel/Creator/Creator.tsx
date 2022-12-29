@@ -59,7 +59,9 @@ const Creator: Component<IProps> = (props) => {
 
   return (
     <>
-      <button onClick={() => props.setCreator(false)}>Go Back</button>
+      <button class="admin-button" onClick={() => props.setCreator(false)}>
+        Go Back
+      </button>
       <h3>Creater</h3>
       <label for="title">Title:</label>
       <input
@@ -102,8 +104,7 @@ const Creator: Component<IProps> = (props) => {
 
       <label for="markdown">Markdown:</label>
       <textarea
-        rows="50"
-        cols="50"
+        class="admin-textarea"
         id="markdown"
         onInput={updatePostField('markdown')}
         value={newPost().markdown}

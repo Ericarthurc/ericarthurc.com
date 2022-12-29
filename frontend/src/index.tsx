@@ -15,5 +15,5 @@ render(
       </MetaProvider>
     </Router>
   ),
-  document.getElementById('root') as HTMLElement
+  document.getElementById('solid') as HTMLElement
 );

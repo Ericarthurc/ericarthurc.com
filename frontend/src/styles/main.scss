@@ -1,16 +1,4 @@
 :root {
-  --main-header-color: #ffffff;
-
-  --markdown-tags-color: #82aaff;
-  --markdown-h1-color: #419aff;
-  --markdown-h2-color: #d008eb;
-  --markdown-h3-color: #ff2ea4;
-  --markdown-h4-color: #8be9fd;
-  --markdown-a-color: #40d0f0;
-  --markdown-a-hover-color: #40d0f0c0;
-}
-
-[data-theme='dark'] {
   --html-color: #ffffff;
   --background-color: #0d1017;
   --navbar-background: #18181b;
@@ -26,6 +14,16 @@
 
   --meta-info-title-color: #ffffff;
   --meta-info-date-color: #ffffff;
+
+  --main-header-color: #ffffff;
+
+  --markdown-tags-color: #82aaff;
+  --markdown-h1-color: #419aff;
+  --markdown-h2-color: #d008eb;
+  --markdown-h3-color: #ff2ea4;
+  --markdown-h4-color: #8be9fd;
+  --markdown-a-color: #40d0f0;
+  --markdown-a-hover-color: #40d0f0c0;
 }
 
 [data-theme='light'] {
