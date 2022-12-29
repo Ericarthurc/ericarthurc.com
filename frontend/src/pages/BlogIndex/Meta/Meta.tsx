@@ -9,7 +9,8 @@ const Metas: Component<IMeta> = (props) => {
         <div class="meta-info">
           <span class="meta-info-title">{props.title}</span>
           <span class="meta-info-date">
-            {new Date(props.date).toLocaleDateString('us-PT', {
+            {new Date(props.date).toLocaleDateString('en', {
+              timeZone: 'UTC',
               day: 'numeric',
               month: 'long',
               year: 'numeric',

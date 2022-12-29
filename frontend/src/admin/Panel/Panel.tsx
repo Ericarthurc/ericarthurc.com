@@ -10,6 +10,7 @@ import {
 import { adminGetPosts } from '../../api/adminAPI';
 
 import { IMeta } from '../../api/siteAPI';
+import Creator from './Creator/Creator';
 import Editor from './Editor/Editor';
 import Post from './Post/Post';
 
@@ -21,6 +22,7 @@ const Panel: Component<IProps> = (props) => {
   const [loaded, isLoaded] = createSignal<Boolean>(false);
   const [posts, setPosts] = createSignal<IMeta[]>([]);
   const [selectedPost, setSelectedPost] = createSignal<String>('');
+  const [creator, setCreator] = createSignal<Boolean>(false);
 
   onMount(async () => {
     try {
@@ -41,18 +43,33 @@ const Panel: Component<IProps> = (props) => {
       >
         Logout
       </button>
+      <button style={{ 'margin-bottom': '25px' }} type="submit">
+        Force Cache Reload
+      </button>
+
       <Show when={loaded()}>
         <Switch fallback={<></>}>
           <Match when={!selectedPost()}>
-            <button style={{ 'margin-bottom': '25px' }} type="submit">
-              Create Post
-            </button>
-            <For each={posts()}>
-              {(post, _) => (
-                <Post meta={post} setSelectedPost={setSelectedPost}></Post>
-              )}
-            </For>
+            <Switch fallback={<></>}>
+              <Match when={!creator()}>
+                <button
+                  style={{ 'margin-bottom': '25px' }}
+                  onClick={() => setCreator(!creator())}
+                >
+                  Create Post
+                </button>
+                <For each={posts()}>
+                  {(post, _) => (
+                    <Post meta={post} setSelectedPost={setSelectedPost}></Post>
+                  )}
+                </For>
+              </Match>
+              <Match when={creator()}>
+                <Creator setCreator={setCreator}></Creator>
+              </Match>
+            </Switch>
           </Match>
+
           <Match when={selectedPost()}>
             <Editor
               postId={selectedPost()}

@@ -26,7 +26,7 @@ static SYNTECT_ADAPTER: Lazy<SyntectAdapter> = {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Post {
-    pub id: Uuid,
+    pub id: Option<Uuid>,
     pub title: String,
     pub series: String,
     pub categories: Vec<String>,
@@ -94,8 +94,14 @@ impl Post {
     //     Ok(Post::try_from(row).unwrap())
     // }
 
-    // CREATE
-    // "INSERT INTO items (product, manufacturer, device_type, serial, condition, year) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *"
+    pub async fn create_post_postgres<'a>(
+        postgres_con: PooledConnection<'a, PostgresConnectionManager<MakeTlsConnector>>,
+        new_post: Post,
+    ) -> Result<Self, AppError> {
+        let row = postgres_con.query_one("INSERT INTO post (title, series, categories, markdown, date) VALUES ($1, $2, $3, $4, $5) RETURNING *", &[&new_post.title, &new_post.series, &new_post.categories, &new_post.markdown, &new_post.date]).await?;
+
+        Ok(Post::try_from(row).unwrap())
+    }
 
     pub async fn update_post_postgres<'a>(
         postgres_con: PooledConnection<'a, PostgresConnectionManager<MakeTlsConnector>>,
@@ -104,11 +110,23 @@ impl Post {
     ) -> Result<Self, AppError> {
         let id = uuid::Uuid::parse_str(&post_id).unwrap();
 
-        let row = postgres_con.query_one("UPDATE post SET title = $2, series = $3, categories = $4, markdown = $5, date = $6 WHERE id = $1 RETURNING *", &[&id, &updated_post.title, &updated_post.series, &updated_post.categories, &updated_post.markdown, &updated_post.date]).await;
+        let row = postgres_con.query_one("UPDATE post SET title = $2, series = $3, categories = $4, markdown = $5, date = $6 WHERE id = $1 RETURNING *", &[&id, &updated_post.title, &updated_post.series, &updated_post.categories, &updated_post.markdown, &updated_post.date]).await?;
 
-        Ok(Post::try_from(row.unwrap()).unwrap())
+        Ok(Post::try_from(row).unwrap())
     }
 
     // DELETE
     // DELETE FROM items WHERE id = $1
+    pub async fn delete_post_postgres<'a>(
+        postgres_con: PooledConnection<'a, PostgresConnectionManager<MakeTlsConnector>>,
+        post_id: &str,
+    ) -> Result<(), AppError> {
+        let id = uuid::Uuid::parse_str(&post_id).unwrap();
+
+        let _ = postgres_con
+            .query_one("DELETE FROM post WHERE id = $1", &[&id])
+            .await;
+
+        Ok(())
+    }
 }

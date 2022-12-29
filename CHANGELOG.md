@@ -1,5 +1,22 @@
 # Changelog
 
+## 2022-12-28 16:57
+
+[Backend] [1.5.1]
+
+#### Added
+
+- admin create post route
+- admin delete post route
+
+[Frontend] [1.5.1]
+
+#### Added
+
+- admin create post component
+- admin delete post input
+- admin routes are still very much WIP, basic functionality was just placed to get going; routes work but needs massive rewrites and QOL updates
+
 ## 2022-12-28
 
 [Backend] [1.5.0]

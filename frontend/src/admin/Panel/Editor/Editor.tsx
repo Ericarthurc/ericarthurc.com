@@ -1,13 +1,10 @@
 import {
   Component,
   createSignal,
-  For,
   Index,
-  Match,
   onMount,
   Setter,
   Show,
-  Switch,
 } from 'solid-js';
 import { adminGetPost, adminUpdatePost } from '../../../api/adminAPI';
 import { IPost } from '../../../api/siteAPI';
@@ -71,8 +68,6 @@ const Editor: Component<IProps> = (props) => {
 
   const removeCategory = (index: number) => (event: Event) => {
     setPost((prev) => {
-      console.log('delete');
-
       return {
         ...prev,
         categories: prev.categories.filter((c) => c !== prev.categories[index]),
@@ -82,8 +77,14 @@ const Editor: Component<IProps> = (props) => {
 
   return (
     <>
-      <button onClick={() => props.setSelectedPost('')}>Go Back</button>
+      <button
+        style={{ 'margin-bottom': '25px' }}
+        onClick={() => props.setSelectedPost('')}
+      >
+        Go Back
+      </button>
       <button onClick={restorePost}>Restore Post</button>
+      <h3>Editor</h3>
       <Show when={post()} fallback={<></>}>
         <h4>Post id: {`${props.postId}`}</h4>
         <label for="title">Title:</label>
@@ -136,15 +137,11 @@ const Editor: Component<IProps> = (props) => {
 
         <button
           onClick={async () => {
-            console.log('UPDATE!');
-
             try {
               const response = await adminUpdatePost(post());
 
               setPost(await response.json());
-            } catch (error) {
-              console.log(error);
-            }
+            } catch (error) {}
           }}
         >
           Update

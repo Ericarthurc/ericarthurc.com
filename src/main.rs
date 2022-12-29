@@ -14,8 +14,9 @@ use database::{initialize_connections, DatabaseState};
 use errors::AppError;
 use handlers::{
     admin::{
-        admin_get_post_handler, admin_get_posts_handler, admin_login_handler,
-        admin_login_me_handler, admin_logout_me_handler, admin_update_post_handler,
+        admin_create_post_handler, admin_delete_post_handler, admin_get_post_handler,
+        admin_get_posts_handler, admin_login_handler, admin_login_me_handler,
+        admin_logout_me_handler, admin_update_post_handler,
     },
     category::get_categories_handler,
     meta::get_metas_handler,
@@ -58,9 +59,9 @@ async fn main() -> Result<(), AppError> {
     let admin_api_router = Router::new()
         .route("/posts", get(admin_get_posts_handler))
         .route("/posts/:id", get(admin_get_post_handler))
-        // .route("/posts/", post())
+        .route("/posts", post(admin_create_post_handler))
         .route("/posts/:id", put(admin_update_post_handler))
-        // .route("/posts/:id", delete())
+        .route("/posts/:id", delete(admin_delete_post_handler))
         .route_layer(middleware::from_fn(admin_auth));
 
     let admin_router = Router::new()

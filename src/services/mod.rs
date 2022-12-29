@@ -25,7 +25,10 @@ pub async fn get_post_by_name(
 pub async fn get_post_by_id(redis_con: RedisConnection, post_id: &str) -> Result<Post, AppError> {
     let posts = Post::get_posts_redis(redis_con).await?;
 
-    match posts.into_iter().find(|p| p.id.to_string() == post_id) {
+    match posts
+        .into_iter()
+        .find(|p| p.id.unwrap().to_string() == post_id)
+    {
         Some(p) => Ok(p),
         None => Err(AppError::Custom(format!("{} not found", post_id))),
     }

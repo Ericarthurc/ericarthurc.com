@@ -3,7 +3,7 @@
 // }
 
 export interface IPost {
-  id: string;
+  id?: string;
   title: string;
   date: string;
   series: string;

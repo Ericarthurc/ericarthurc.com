@@ -86,8 +86,13 @@ pub async fn admin_get_post_handler(
 
 pub async fn admin_create_post_handler(
     State(state): State<Arc<AppState>>,
+    extract::Json(post_payload): extract::Json<Post>,
 ) -> Result<impl IntoResponse, AppError> {
-    Ok(())
+    let postgres_con = state.databases.postgres.new_connection().await?;
+
+    let created_post = Post::create_post_postgres(postgres_con, post_payload).await?;
+    state.databases.update_cache().await?;
+    Ok(Json(created_post))
 }
 
 pub async fn admin_update_post_handler(
@@ -114,5 +119,15 @@ pub async fn admin_delete_post_handler(
     State(state): State<Arc<AppState>>,
     Path(params): Path<HashMap<String, String>>,
 ) -> Result<impl IntoResponse, AppError> {
-    Ok(())
+    let post_id = params.get("id");
+
+    let postgres_con = state.databases.postgres.new_connection().await?;
+    match post_id {
+        Some(post_id) => {
+            Post::delete_post_postgres(postgres_con, post_id).await?;
+            state.databases.update_cache().await?;
+            Ok((StatusCode::OK).into_response())
+        }
+        None => Err(AppError::Custom(String::from("missing parameter"))),
+    }
 }
