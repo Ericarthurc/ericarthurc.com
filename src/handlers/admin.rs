@@ -7,7 +7,7 @@ use std::{collections::HashMap, env, sync::Arc};
 use tower_cookies::{Cookie, Cookies};
 
 use crate::models::post::Post;
-use crate::services::{get_metas_sorted, get_post_by_id, get_post_by_name};
+use crate::services::{get_metas_sorted, get_post_by_id};
 use crate::AppState;
 use crate::{errors::AppError, utilities::jwt::generate_auth_jwt};
 

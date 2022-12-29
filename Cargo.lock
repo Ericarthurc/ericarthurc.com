@@ -475,7 +475,7 @@ checksum = "b5320ae4c3782150d900b79807611a59a99fc9a1d61d686faafc24b93fc8d7ca"
 
 [[package]]
 name = "ericarthurc"
-version = "1.5.0"
+version = "1.5.1"
 dependencies = [
  "axum",
  "bb8",

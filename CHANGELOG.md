@@ -1,5 +1,14 @@
 # Changelog
 
+## 2022-12-28 22:00
+
+[Frontend] [1.5.2]
+
+#### Added
+
+- started some test styling on the admin component
+- redesign of admin panel form handling coming soon; will move conditional logic to a solid-js store verse a signal
+
 ## 2022-12-28 16:57
 
 [Backend] [1.5.1]
