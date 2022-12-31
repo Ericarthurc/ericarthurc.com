@@ -64,11 +64,16 @@ const Panel: Component<IProps> = (props) => {
                 >
                   Create Post
                 </button>
-                <For each={posts()}>
-                  {(post, _) => (
-                    <Post meta={post} setSelectedPost={setSelectedPost}></Post>
-                  )}
-                </For>
+                <div class="admin-post-container">
+                  <For each={posts()}>
+                    {(post, _) => (
+                      <Post
+                        meta={post}
+                        setSelectedPost={setSelectedPost}
+                      ></Post>
+                    )}
+                  </For>
+                </div>
               </Match>
               <Match when={creator()}>
                 <Creator setCreator={setCreator}></Creator>

@@ -1,5 +1,18 @@
 # Changelog
 
+## 2022-12-31 14:11
+
+[Frontend] [1.5.3]
+
+#### Added
+
+- most test style work for the admin panel
+
+#### Changed
+
+- updated the editor and creator to use a date input type
+- upadted the admin api post creator and updater functions to convert the date object to a PST time string
+
 ## 2022-12-28 22:00
 
 [Frontend] [1.5.2]

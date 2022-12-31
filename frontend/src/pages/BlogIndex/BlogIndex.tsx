@@ -1,6 +1,6 @@
 import { Component, createSignal, For, onMount } from 'solid-js';
 import { getMeta, IMeta } from '../../api/siteAPI';
-import Meta from './Meta/Meta';
+import Meta from '../../components/Meta/Meta';
 
 const BlogIndex: Component = () => {
   const [posts, setPosts] = createSignal<IMeta[]>([]);

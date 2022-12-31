@@ -77,77 +77,78 @@ const Editor: Component<IProps> = (props) => {
 
   return (
     <>
-      <button
-        style={{ 'margin-bottom': '25px' }}
-        onClick={() => props.setSelectedPost('')}
-      >
+      <button class="admin-button" onClick={() => props.setSelectedPost('')}>
         Go Back
       </button>
-      <button onClick={restorePost}>Restore Post</button>
+      <button class="admin-button" onClick={restorePost}>
+        Restore Post
+      </button>
       <h3>Editor</h3>
-      <Show when={post()} fallback={<></>}>
-        <h4>Post id: {`${props.postId}`}</h4>
-        <label for="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          onInput={updatePostField('title')}
-          value={post()?.title}
-        ></input>
+      <div class="admin-editor">
+        <Show when={post()} fallback={<></>}>
+          {/* <h4>Post id: {`${props.postId}`}</h4> */}
+          <label for="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            onInput={updatePostField('title')}
+            value={post()?.title}
+          ></input>
 
-        <label for="date">Date:</label>
-        <input
-          id="date"
-          type="text"
-          onInput={updatePostField('date')}
-          value={post()?.date}
-        ></input>
+          <label for="date">Date:</label>
+          <input
+            id="date"
+            type="date"
+            onInput={updatePostField('date')}
+            value={post()?.date.split('T')[0]}
+          ></input>
 
-        <label for="series">Series:</label>
-        <input
-          type="series"
-          onInput={updatePostField('series')}
-          value={post()?.series}
-        ></input>
+          <label for="series">Series:</label>
+          <input
+            type="series"
+            onInput={updatePostField('series')}
+            value={post()?.series}
+          ></input>
 
-        <label for="categories">Categories:</label>
-        <Index each={post()?.categories}>
-          {(c, i) => (
-            <>
-              <input
-                id="categories"
-                type="text"
-                onInput={updatePostField('categories', i)}
-                value={c()}
-              ></input>
-              <button onClick={removeCategory(i)}>-</button>
-            </>
-          )}
-        </Index>
-        <button onClick={addCategory}>+</button>
+          <label for="categories">Categories:</label>
+          <Index each={post()?.categories}>
+            {(c, i) => (
+              <>
+                <input
+                  id="categories"
+                  type="text"
+                  onInput={updatePostField('categories', i)}
+                  value={c()}
+                ></input>
+                <button onClick={removeCategory(i)}>-</button>
+              </>
+            )}
+          </Index>
+          <button onClick={addCategory}>+</button>
 
-        <label for="markdown">Markdown:</label>
-        <textarea
-          class="admin-textarea"
-          // rows="50"
-          // cols="50"
-          id="markdown"
-          onInput={updatePostField('markdown')}
-          value={post()?.markdown}
-        ></textarea>
+          <label for="markdown">Markdown:</label>
+          <textarea
+            class="admin-textarea"
+            // rows="50"
+            // cols="50"
+            id="markdown"
+            onInput={updatePostField('markdown')}
+            value={post()?.markdown}
+          ></textarea>
 
-        <button
-          onClick={async () => {
-            try {
-              const response = await adminUpdatePost(post());
+          <button
+            onClick={async () => {
+              try {
+                const response = await adminUpdatePost(post());
 
-              setPost(await response.json());
-            } catch (error) {}
-          }}
-        >
-          Update
-        </button>
-      </Show>
+                setPost(await response.json());
+              } catch (error) {}
+            }}
+          >
+            Update
+          </button>
+        </Show>
+      </div>
     </>
   );
 };

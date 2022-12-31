@@ -83,6 +83,8 @@ export const adminGetPost = async (postId: String): Promise<Response> => {
 export const adminCreatePost = async (
   newPostData: IPost
 ): Promise<Response> => {
+  newPostData['date'] = new Date(`${newPostData.date} PST`).toISOString();
+
   const response = await fetch('/api/admin/posts', {
     method: 'POST',
     headers: {
@@ -102,6 +104,10 @@ export const adminCreatePost = async (
 export const adminUpdatePost = async (
   updatedPostData: IPost
 ): Promise<Response> => {
+  updatedPostData['date'] = new Date(
+    `${updatedPostData.date} PST`
+  ).toISOString();
+
   const response = await fetch(`/api/admin/posts/${updatedPostData.id}`, {
     method: 'PUT',
     headers: {

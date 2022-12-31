@@ -1,6 +1,6 @@
 import { A } from '@solidjs/router';
 import { Component, For } from 'solid-js';
-import { IMeta } from '../../../api/siteAPI';
+import { IMeta } from '../../api/siteAPI';
 
 const Metas: Component<IMeta> = (props) => {
   return (
@@ -10,7 +10,7 @@ const Metas: Component<IMeta> = (props) => {
           <span class="meta-info-title">{props.title}</span>
           <span class="meta-info-date">
             {new Date(props.date).toLocaleDateString('en', {
-              timeZone: 'UTC',
+              timeZone: 'PST',
               day: 'numeric',
               month: 'long',
               year: 'numeric',

@@ -1,7 +1,7 @@
 import { useParams } from '@solidjs/router';
 import { Component, createSignal, For, onMount } from 'solid-js';
 import { getSeriesMeta, IMeta } from '../../api/siteAPI';
-import Metas from './Meta/Meta';
+import Metas from '../../components/Meta/Meta';
 
 const Series: Component = () => {
   const params = useParams();

@@ -16,14 +16,35 @@ const Post: Component<IProps> = (props) => {
   };
 
   return (
-    <div style={{ 'margin-bottom': '30px' }}>
-      <p>{props.meta.id}</p>
-      <p>{props.meta.title}</p>
-      <p>{props.meta.date}</p>
-      <p>{props.meta.series}</p>
-      <For each={props.meta.categories}>{(c) => <span>{c} </span>}</For>
-      <button onClick={() => props.setSelectedPost(props.meta.id)}>Edit</button>
-      <button onClick={deletePost}>Delete</button>
+    <div class="admin-post">
+      <label class="admin-post-label">Title:</label>
+      <span>{props.meta.title}</span>
+      <label class="admin-post-label">Date:</label>
+      <span>
+        {new Date(props.meta.date).toLocaleDateString('en', {
+          timeZone: 'UTC',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })}
+      </span>
+      <label class="admin-post-label">Series:</label>
+      <span>{props.meta.series}</span>
+      <label class="admin-post-label">Categories:</label>
+      <div>
+        <For each={props.meta.categories}>{(c) => <span>{c} </span>}</For>
+      </div>
+      <div>
+        <button
+          class="admin-post-button"
+          onClick={() => props.setSelectedPost(props.meta.id)}
+        >
+          Edit
+        </button>
+        <button class="admin-post-button" onClick={deletePost}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

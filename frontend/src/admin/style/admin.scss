@@ -27,6 +27,51 @@
     margin-bottom: 20px;
 }
 
+.admin-post-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.admin-post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    background-color: #18219e1c;
+    padding: 10px 10px;
+    border-radius: 0.25rem;
+    border: 1px solid #1d3cc4;
+    box-shadow: rgb(0 0 0/ 15%) 0px 5px 10px 0px;
+}
+
+.admin-post-label {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.admin-post-button {
+    color: #fff;
+    background: #2446dd;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    align-self: center;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        outline: 0;
+        background: #173894;
+    }
+}
+
 .admin-login-form {
     background-color: #18219e;
     padding: 10px 20px;
@@ -99,11 +144,9 @@
 
 .admin-textarea {
     width: 100%;
-    max-width: 500px;
     height: 400px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid rgb(57, 121, 240);
     border-radius: 4px;
     background-color: #0e0d0d;
     font-size: 16px;
@@ -120,4 +163,14 @@ textarea::-webkit-scrollbar-thumb {
     background-color: #2f2e3a;
     border-radius: 20px;
     background-clip: padding-box;
+}
+
+.admin-editor {
+    display: flex;
+    flex-direction: column;
+    max-width: 425px;
+    width: 100%;
+    background-color: #290885;
+    padding: 10px 10px;
+    border-radius: 4px;
 }
