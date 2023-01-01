@@ -83,7 +83,14 @@ export const adminGetPost = async (postId: String): Promise<Response> => {
 export const adminCreatePost = async (
   newPostData: IPost
 ): Promise<Response> => {
-  newPostData['date'] = new Date(`${newPostData.date} PST`).toISOString();
+  // Prepare form inputs for creation
+  // Backend should probably do the lowercase modifications
+  // Prepare the date as an ISO string with timezone for Rust
+  newPostData.date = new Date(`${newPostData.date} PST`).toISOString();
+  newPostData.series = newPostData.series.toLocaleLowerCase();
+  newPostData.categories = newPostData.categories.map((c) =>
+    c.toLocaleLowerCase()
+  );
 
   const response = await fetch('/api/admin/posts', {
     method: 'POST',
@@ -104,9 +111,12 @@ export const adminCreatePost = async (
 export const adminUpdatePost = async (
   updatedPostData: IPost
 ): Promise<Response> => {
-  updatedPostData['date'] = new Date(
-    `${updatedPostData.date} PST`
-  ).toISOString();
+  // Prepare the date as an ISO string for Rust
+  updatedPostData.date = new Date(`${updatedPostData.date}`).toISOString();
+  updatedPostData.series = updatedPostData.series.toLocaleLowerCase();
+  updatedPostData.categories = updatedPostData.categories.map((c) =>
+    c.toLocaleLowerCase()
+  );
 
   const response = await fetch(`/api/admin/posts/${updatedPostData.id}`, {
     method: 'PUT',

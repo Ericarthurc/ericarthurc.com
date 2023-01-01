@@ -1,3 +1,5 @@
+use chrono::{DateTime, FixedOffset, TimeZone, Utc};
+
 use self::{postgres::PostgresDatabase, redis::RedisDatabase};
 use crate::{errors::AppError, models::post::Post};
 
@@ -41,8 +43,9 @@ impl DatabaseState {
 
         redis_con.set_cache_redis(&posts).await?;
 
-        // Maybe add a timestamp
-        println!("💾 posts updated in redis cache");
+        let now = chrono::offset::Local::now();
+
+        println!("💾 posts updated in redis cache, {}", now);
 
         Ok(())
     }

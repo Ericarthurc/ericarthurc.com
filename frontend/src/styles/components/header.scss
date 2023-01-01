@@ -1,4 +1,17 @@
 .header {
-    height: 80px;
+    height: 120px;
     margin-top: 15px;
 }
+
+.header-logo {
+    height: 80px;
+}
+
+.header-graphic {
+    height: 40px;
+}
+
+// Needs to be set my variable
+// .header-graphic * {
+//     stroke: black !important;
+// }

@@ -14,7 +14,7 @@ const Category: Component = () => {
 
   return (
     <div class="main-container">
-      <h1 class="main-header">{params.category} Category</h1>
+      <h1 class="main-header">{decodeURI(params.category)} Category</h1>
       <div class="cards-container">
         <For each={posts()}>{(post, _) => <Metas {...post}></Metas>}</For>
       </div>

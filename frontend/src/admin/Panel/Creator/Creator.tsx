@@ -18,7 +18,7 @@ const Creator: Component<IProps> = (props) => {
   const submitNewPost = async (event: Event) => {
     event.preventDefault();
     try {
-      const response = await adminCreatePost(newPost());
+      await adminCreatePost(newPost());
     } catch (error) {}
   };
 
@@ -67,6 +67,7 @@ const Creator: Component<IProps> = (props) => {
         <label for="title">Title:</label>
         <input
           id="title"
+          required
           type="text"
           onInput={updatePostField('title')}
           value={newPost().title}
@@ -75,6 +76,7 @@ const Creator: Component<IProps> = (props) => {
         <label for="date">Date:</label>
         <input
           id="date"
+          required={true}
           type="date"
           onInput={updatePostField('date')}
           value={newPost()?.date}
@@ -82,6 +84,8 @@ const Creator: Component<IProps> = (props) => {
 
         <label for="series">Series:</label>
         <input
+          id="series"
+          required={true}
           type="series"
           onInput={updatePostField('series')}
           value={newPost().series}
@@ -93,6 +97,7 @@ const Creator: Component<IProps> = (props) => {
             <>
               <input
                 id="categories"
+                required={true}
                 type="text"
                 onInput={updatePostField('categories', i)}
                 value={c()}
@@ -106,6 +111,7 @@ const Creator: Component<IProps> = (props) => {
         <label for="markdown">Markdown:</label>
         <textarea
           class="admin-textarea"
+          required={true}
           id="markdown"
           onInput={updatePostField('markdown')}
           value={newPost().markdown}

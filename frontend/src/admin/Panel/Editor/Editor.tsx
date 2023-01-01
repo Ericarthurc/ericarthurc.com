@@ -137,9 +137,7 @@ const Editor: Component<IProps> = (props) => {
           <button
             onClick={async () => {
               try {
-                const response = await adminUpdatePost(post());
-
-                setPost(await response.json());
+                await adminUpdatePost(post());
               } catch (error) {}
             }}
           >

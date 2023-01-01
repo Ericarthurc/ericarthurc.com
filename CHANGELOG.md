@@ -1,5 +1,23 @@
 # Changelog
 
+## 2023-01-01 14:22
+
+[Backend] [1.5.21]
+
+#### Added
+
+- put a timestamp on cache update log
+
+[Frontend] [1.5.5]
+
+#### Added
+
+- worked a little on shaping the size of the site
+
+#### Fixed
+
+- creator admin panel works correctly again | admin panel is highly WIP
+
 ## 2022-12-31 20:50
 
 [Backend] [1.5.2]
