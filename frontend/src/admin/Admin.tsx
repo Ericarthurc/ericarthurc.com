@@ -6,8 +6,6 @@ import Login from './Login/Login';
 import { adminForm } from './adminForm';
 import Panel from './Panel/Panel';
 
-import './style/admin.scss';
-
 const Admin: Component = () => {
   const [loaded, isLoaded] = createSignal<Boolean>(false);
   const [authorized, setAuthorized] = createSignal<Boolean>(false);

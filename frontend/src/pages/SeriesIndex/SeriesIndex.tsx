@@ -12,13 +12,13 @@ const SeriesIndex: Component = () => {
 
   return (
     <div class="main-container">
-      <div class="metas-container">
+      <div class="cards-container">
         <For each={series()}>
           {(s, _) => (
-            <div class="meta-container-series">
-              <A class="meta-anchor-series" href={`/series/${s.series}`}>
-                <div class="meta-info">
-                  <span class="meta-info-title">{s.series}</span>
+            <div class="card-series">
+              <A class="card-header-series" href={`/series/${s.series}`}>
+                <div class="card-header-info">
+                  <span class="card-title">{s.series}</span>
                 </div>
               </A>
             </div>

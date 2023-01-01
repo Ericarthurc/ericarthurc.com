@@ -12,7 +12,7 @@ const BlogIndex: Component = () => {
 
   return (
     <div class="main-container">
-      <div class="metas-container">
+      <div class="cards-container">
         <For each={posts()}>{(post, _) => <Meta {...post}></Meta>}</For>
       </div>
     </div>

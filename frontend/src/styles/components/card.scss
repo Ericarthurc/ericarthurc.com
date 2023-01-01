@@ -1,0 +1,109 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    width: 220px;
+}
+
+.card-header {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    background: var(--meta-anchor-background);
+    border: var(--meta-anchor-border-color) 1px solid;
+    border-radius: 0.5rem;
+    width: 220px;
+    min-height: 40px;
+    text-align: center;
+    padding: 6px 0;
+    box-shadow: rgb(0 0 0/ 15%) 0px 5px 10px 0px;
+
+    &:hover {
+        transition: 0.4s ease;
+        background: var(--meta-anchor-hover-background);
+    }
+}
+
+.card-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: var(--meta-info-title-color);
+    padding: 0 3%;
+    font-size: 18px;
+    font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.card-date {
+    margin-top: 3px;
+    padding: 0 3%;
+    font-size: 16px;
+    color: var(--meta-info-date-color);
+}
+
+.card-categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    row-gap: 6px;
+    column-gap: 6px;
+    justify-content: center;
+    max-width: 325px;
+}
+
+.card-category {
+    text-decoration: none;
+    display: grid;
+}
+
+.card-category-info {
+    background: #3f3f46;
+    border-radius: 0.25rem;
+    font-size: 13px;
+    color: #fafafa;
+    padding: 4px 8px;
+
+    &:hover {
+        background: #71717a;
+    }
+}
+
+.card-series {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    width: 180px;
+}
+
+.card-header-series {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    background: var(--meta-anchor-series-background);
+    border-radius: 0.5rem;
+    width: 180px;
+    min-height: 40px;
+    text-align: center;
+    box-shadow: rgb(0 0 0/ 15%) 0px 5px 10px 0px;
+    justify-content: center;
+
+    &:hover {
+        transition: 0.4s ease;
+        background: var(--meta-anchor-series-hover-background);
+    }
+}

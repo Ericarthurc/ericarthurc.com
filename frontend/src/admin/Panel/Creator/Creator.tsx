@@ -63,54 +63,56 @@ const Creator: Component<IProps> = (props) => {
         Go Back
       </button>
       <h3>Creater</h3>
-      <label for="title">Title:</label>
-      <input
-        id="title"
-        type="text"
-        onInput={updatePostField('title')}
-        value={newPost().title}
-      ></input>
+      <div class="admin-editor">
+        <label for="title">Title:</label>
+        <input
+          id="title"
+          type="text"
+          onInput={updatePostField('title')}
+          value={newPost().title}
+        ></input>
 
-      <label for="date">Date:</label>
-      <input
-        id="date"
-        type="text"
-        onInput={updatePostField('date')}
-        value={newPost().date}
-      ></input>
+        <label for="date">Date:</label>
+        <input
+          id="date"
+          type="date"
+          onInput={updatePostField('date')}
+          value={newPost()?.date}
+        ></input>
 
-      <label for="series">Series:</label>
-      <input
-        type="series"
-        onInput={updatePostField('series')}
-        value={newPost().series}
-      ></input>
+        <label for="series">Series:</label>
+        <input
+          type="series"
+          onInput={updatePostField('series')}
+          value={newPost().series}
+        ></input>
 
-      <label for="categories">Categories:</label>
-      <Index each={newPost().categories}>
-        {(c, i) => (
-          <>
-            <input
-              id="categories"
-              type="text"
-              onInput={updatePostField('categories', i)}
-              value={c()}
-            ></input>
-            <button onClick={removeCategory(i)}>-</button>
-          </>
-        )}
-      </Index>
-      <button onClick={addCategory}>+</button>
+        <label for="categories">Categories:</label>
+        <Index each={newPost().categories}>
+          {(c, i) => (
+            <>
+              <input
+                id="categories"
+                type="text"
+                onInput={updatePostField('categories', i)}
+                value={c()}
+              ></input>
+              <button onClick={removeCategory(i)}>-</button>
+            </>
+          )}
+        </Index>
+        <button onClick={addCategory}>+</button>
 
-      <label for="markdown">Markdown:</label>
-      <textarea
-        class="admin-textarea"
-        id="markdown"
-        onInput={updatePostField('markdown')}
-        value={newPost().markdown}
-      ></textarea>
+        <label for="markdown">Markdown:</label>
+        <textarea
+          class="admin-textarea"
+          id="markdown"
+          onInput={updatePostField('markdown')}
+          value={newPost().markdown}
+        ></textarea>
 
-      <button onClick={submitNewPost}>Submit</button>
+        <button onClick={submitNewPost}>Submit</button>
+      </div>
     </>
   );
 };

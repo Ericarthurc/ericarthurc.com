@@ -1,5 +1,20 @@
 # Changelog
 
+## 2022-12-31 20:50
+
+[Backend] [1.5.2]
+
+#### Fixed
+
+- put back `unsafe_` render option for comrak to external fix anchor tags in markdown
+
+[Frontend] [1.5.4]
+
+#### Changed
+
+- testing out modular .scss files for different style components
+- changing themeing to green for beginnings of circuit board theme
+
 ## 2022-12-31 14:11
 
 [Frontend] [1.5.3]

@@ -129,8 +129,6 @@ const Editor: Component<IProps> = (props) => {
           <label for="markdown">Markdown:</label>
           <textarea
             class="admin-textarea"
-            // rows="50"
-            // cols="50"
             id="markdown"
             onInput={updatePostField('markdown')}
             value={post()?.markdown}

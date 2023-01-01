@@ -54,6 +54,7 @@ impl Post {
         let mut options = ComrakOptions::default();
         options.extension.autolink = true;
         options.extension.header_ids = Some(String::from(""));
+        options.render.unsafe_ = true;
         let mut plugins = ComrakPlugins::default();
 
         plugins.render.codefence_syntax_highlighter = Some(&*SYNTECT_ADAPTER);
