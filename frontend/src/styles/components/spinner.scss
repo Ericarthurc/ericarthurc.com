@@ -1,0 +1,23 @@
+.spinner {
+    height: 40px;
+    animation: loading-spinner 1s linear infinite, colors 5s infinite;
+    opacity: 0;
+}
+
+.spinner path {
+    stroke: var(--header-logo-color);
+}
+
+.show {
+    opacity: 1;
+}
+
+@keyframes loading-spinner {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2023-01-02 14:00
+
+[Frontend] [1.6.5]
+
+#### Added
+
+- lots of work with css animations; header-logo is now animated
+- added a WIP spinner to async loads
+
 ## 2023-01-01 14:22
 
 [Backend] [1.5.21]

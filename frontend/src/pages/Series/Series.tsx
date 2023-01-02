@@ -2,6 +2,7 @@ import { useParams } from '@solidjs/router';
 import { Component, createSignal, For, onMount } from 'solid-js';
 import { getSeriesMeta, IMeta } from '../../api/siteAPI';
 import Metas from '../../components/Meta/Meta';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Series: Component = () => {
   const params = useParams();
@@ -16,7 +17,9 @@ const Series: Component = () => {
     <div class="main-container">
       <h1 class="main-header">{params.series} Series</h1>
       <div class="cards-container">
-        <For each={posts()}>{(post, _) => <Metas {...post}></Metas>}</For>
+        <For fallback={<Spinner startTime={500}></Spinner>} each={posts()}>
+          {(post, _) => <Metas {...post}></Metas>}
+        </For>
       </div>
     </div>
   );

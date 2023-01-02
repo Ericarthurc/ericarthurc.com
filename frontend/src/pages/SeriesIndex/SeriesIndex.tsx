@@ -1,6 +1,7 @@
 import { A } from '@solidjs/router';
 import { Component, createSignal, For, onMount } from 'solid-js';
 import { getSeries, ISeries } from '../../api/siteAPI';
+import Spinner from '../../components/Spinner/Spinner';
 
 const SeriesIndex: Component = () => {
   const [series, setSeries] = createSignal<ISeries[]>([]);
@@ -13,7 +14,7 @@ const SeriesIndex: Component = () => {
   return (
     <div class="main-container">
       <div class="cards-container">
-        <For each={series()}>
+        <For fallback={<Spinner startTime={500}></Spinner>} each={series()}>
           {(s, _) => (
             <div class="card-series">
               <A class="card-header-series" href={`/series/${s.series}`}>

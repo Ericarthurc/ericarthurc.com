@@ -2,6 +2,7 @@ import { useParams } from '@solidjs/router';
 import { Component, createSignal, onMount, Show } from 'solid-js';
 
 import { getPost, IPost } from '../../api/siteAPI';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Blog: Component = () => {
   const params = useParams();
@@ -15,7 +16,7 @@ const Blog: Component = () => {
 
   return (
     <div class="blog-container">
-      <Show when={post()} fallback={<></>}>
+      <Show when={post()} fallback={<Spinner startTime={500}></Spinner>}>
         <div innerHTML={post()?.markdown}></div>
       </Show>
     </div>

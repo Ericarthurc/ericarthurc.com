@@ -50,9 +50,9 @@ const Admin: Component = () => {
       </nav>
 
       <div class="admin-container">
-        <Switch fallback={<></>}>
+        <Switch>
           <Match when={loaded()}>
-            <Switch fallback={<></>}>
+            <Switch>
               <Match when={authorized()}>
                 <Panel logout={logout} />
               </Match>

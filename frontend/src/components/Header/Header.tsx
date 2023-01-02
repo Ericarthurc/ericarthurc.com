@@ -43,93 +43,100 @@ const Header: Component = () => {
               <g>
                 <g transform="matrix(1,0,0,1,154.446,48.4205)">
                   <circle
+                    class="circle-5"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <g transform="matrix(1,0,0,1,31.4872,45.5999)">
                   <circle
+                    class="circle-3"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <g transform="matrix(1,0,0,1,-0.578834,-0.255393)">
                   <path
                     d="M380.066,267.855L382.582,270.372L429.582,270.372L433.906,273.582L495,273.582L498.025,270.556"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
               </g>
               <g>
                 <g transform="matrix(1,0,0,1,263.278,47.6759)">
                   <circle
+                    class="circle-7"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <g transform="matrix(0.909091,0,0,1,51.2727,-1.86528)">
                   <path
                     d="M553.191,271.348L597.191,271.348L603.814,277.368L610.506,271.284"
-                    style="fill:none;stroke:white;stroke-width:1.74px;"
+                    style="fill:none;stroke-width:1.74px;"
                   />
                 </g>
               </g>
               <g>
                 <g transform="matrix(1,0,0,1,-2.89562,50.1759)">
                   <circle
+                    class="circle-1"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <g transform="matrix(1,0,0,1,0.104384,0.0173973)">
                   <path
                     d="M427,273.309L378,273.309L374.349,269.658L345,269.658"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
               </g>
               <g>
                 <g transform="matrix(1,0,0,1,254.451,47.1347)">
                   <circle
+                    class="circle-6"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <g transform="matrix(1,0,0,1,35.7992,65.6618)">
                   <circle
+                    class="circle-4"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <path
                   d="M383.075,282.925L386,280L538,280L551.382,266.618L597,266.618"
-                  style="fill:none;stroke:white;stroke-width:1.67px;"
+                  style="fill:none;stroke-width:1.67px;"
                 />
               </g>
               <g transform="matrix(1,0,0,1,1.53445,3.39193)">
                 <g transform="matrix(1,0,0,1,19,53.8091)">
                   <circle
+                    class="circle-2"
                     cx="345.5"
                     cy="219.5"
                     r="2.5"
-                    style="fill:none;stroke:white;stroke-width:1.67px;"
+                    style="fill:none;stroke-width:1.67px;"
                   />
                 </g>
                 <path
                   d="M367,273.309L535.348,273.309L548.375,260.282L577.432,260.282"
-                  style="fill:none;stroke:white;stroke-width:1.67px;"
+                  style="fill:none;stroke-width:1.67px;"
                 />
               </g>
             </g>

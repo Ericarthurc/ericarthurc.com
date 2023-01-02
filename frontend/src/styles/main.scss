@@ -1,36 +1,4 @@
-:root {
-  --html-color: #ffffff;
-  --background-color: #0e0d0d;
-  --navbar-link-color: #ffffff;
-  --navbar-link-hover-color: #44c225;
-
-  --meta-anchor-background: #181515;
-  --meta-anchor-hover-background: #ffffff1c;
-  --meta-anchor-border-color: #01b419;
-
-  --meta-anchor-series-background: #0a6d12;
-  --meta-anchor-series-hover-background: #0066ff;
-
-  --meta-info-title-color: #ffffff;
-  --meta-info-date-color: #ffffff;
-
-  --main-header-color: #ffffff;
-
-  --markdown-tags-color: #82aaff;
-  --markdown-h1-color: #419aff;
-  --markdown-h2-color: #d008eb;
-  --markdown-h3-color: #ff2ea4;
-  --markdown-h4-color: #8be9fd;
-  --markdown-a-color: #40d0f0;
-  --markdown-a-hover-color: #40d0f0c0;
-}
-
-[data-theme='light'] {
-  --html-color: #1d0e0e;
-  --background-color: #f1f1f1;
-  --navbar-link-color: #262627;
-}
-
+@import "variables.scss";
 
 html {
   font-family: 'Nunito', sans-serif;
@@ -64,6 +32,7 @@ p {
 @import "./components/header.scss";
 @import "./components/navbar.scss";
 @import "./components/card.scss";
+@import "./components/spinner.scss";
 
 @import "./layouts/markdown.scss";
 

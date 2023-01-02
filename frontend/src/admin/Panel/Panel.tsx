@@ -10,6 +10,7 @@ import {
 import { adminGetPosts } from '../../api/adminAPI';
 
 import { IMeta } from '../../api/siteAPI';
+import Spinner from '../../components/Spinner/Spinner';
 import Creator from './Creator/Creator';
 import Editor from './Editor/Editor';
 import Post from './Post/Post';
@@ -53,9 +54,9 @@ const Panel: Component<IProps> = (props) => {
       </button>
 
       <Show when={loaded()}>
-        <Switch fallback={<></>}>
+        <Switch>
           <Match when={!selectedPost()}>
-            <Switch fallback={<></>}>
+            <Switch>
               <Match when={!creator()}>
                 <button
                   class="admin-button"
@@ -65,7 +66,10 @@ const Panel: Component<IProps> = (props) => {
                   Create Post
                 </button>
                 <div class="admin-post-container">
-                  <For each={posts()}>
+                  <For
+                    fallback={<Spinner startTime={500}></Spinner>}
+                    each={posts()}
+                  >
                     {(post, _) => (
                       <Post
                         meta={post}
