@@ -1,8 +1,17 @@
 # Changelog
 
+## 2023-01-02 20:00
+
+[Frontend] [1.6.1]
+
+#### Changed
+
+- adjusted card color on light theme
+- added `response.ok` error checks on all site api calls
+
 ## 2023-01-02 14:00
 
-[Frontend] [1.6.5]
+[Frontend] [1.6.0]
 
 #### Added
 

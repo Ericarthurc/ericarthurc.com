@@ -2,14 +2,14 @@
     display: flex;
     height: 27px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     gap: 15px;
     justify-content: center;
 }
 
 .navbar-link {
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: bold;
     color: var(--navbar-link-color);
     text-decoration: none;
 
